@@ -23,13 +23,13 @@ class NewCharacterForm extends React.Component {
                 <div>
                     <label>
                         Name
-                        <input onChange={this.formChangeHandler} name="name" type="text"/>
+                        <input onChange={this.formChangeHandler} name="name" type="text" value={this.state.name}/>
                     </label>
                 </div>
                 <div>
                     <label>
                         Image
-                        <input onChange={this.formChangeHandler} name="img" type="text"/>
+                        <input onChange={this.formChangeHandler} name="img" type="text" value={this.state.img}/>
                     </label>
                 </div>
                 <div>
