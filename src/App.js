@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import characters from "./api";
+import CharacterIndex from './Containers/CharacterIndex'
+import NewCharacterForm from './Containers/NewCharacterForm'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  state = {
+    characters
+  }
+
+  submitHandler = event => {
+    let newCharacters = [...this.state.characters]
+    newCharacters.push({name: event.target.name.value, img: event.target.img.value})
+    this.setState({characters: newCharacters}, console.log(newCharacters))
+  }
+
+  render() {
+    
+    return (
+      <div className="App">
+        <NewCharacterForm submitHandler={this.submitHandler}/>
+        <CharacterIndex characters={this.state.characters}/>
+      </div>
+    );
+  }
+
 }
 
 export default App;
