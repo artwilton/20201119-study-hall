@@ -1,0 +1,1 @@
+Awesome job! I don't have much feedback. Keep in mind if you're doing inline styling you should use the style={{}} syntax. This syntax will work more consistently for all CSS attributes and to align with convention
