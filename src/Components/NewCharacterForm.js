@@ -11,15 +11,18 @@ class NewCharacterForm extends React.Component {
         this.setState({[event.target.name]: event.target.value})
     }
 
-    submitForm = event => {
+    localSubmitHandler = (event, characterObj) => {
         event.preventDefault()
-        this.props.submitHandler(event)
-        event.target.reset()
+        this.props.submitHandler(event, characterObj)
+        this.setState({
+            name: "",
+            img: ""
+        })
     }
 
     render() {
         return (
-            <form onSubmit={this.submitForm}>
+            <form onSubmit={(event) => this.localSubmitHandler(event, this.state)}>
                 <div>
                     <label>
                         Name

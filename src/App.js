@@ -4,6 +4,10 @@ import CharacterIndex from './Containers/CharacterIndex'
 
 class App extends React.Component {
 
+  state = {
+    search: ""
+  }
+
   render() {
     
     return (
